@@ -1,6 +1,0 @@
-[submodule "js/lib/impress.js"]
-	path = js/lib/impress.js
-	url = git@github.com:impress/impress.js.git
-[submodule "js/lib/leader-line"]
-	path = js/lib/leader-line
-	url = git@github.com:anseki/leader-line.git

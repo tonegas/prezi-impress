@@ -1,0 +1,47 @@
+Removed button '.' for blackout
+----------------------------------
+1514 <- if ( event.keyCode === 66 || event.keyCode === 190 ) {
+1527 <- if ( event.keyCode === 66 || event.keyCode === 190 ) {
+----------------------------------
+1514 -> if (event.keyCode === 66) {
+1527 -> if (event.keyCode === 66) {
+----------------------------------
+I prefer use the presenter button to somthing else
+
+Changed the F5 with F6 and '.'(button of the presenter)
+----------------------------------
+1707 <- if ( event.code === "F5" ) {
+1714 <- if ( event.key === "Escape" || event.key === "F5" ) {
+1721 <- util.triggerEvent( document, "impress:help:add", { command: "F5 / ESC", text: "Fullscreen: Enter / Exit", row: 200 } );
+----------------------------------
+1707 -> if (event.code === "F6" || event.key === ".") {
+1714 -> if (event.key === "Escape" || event.key === "F6" || event.key === ".") {
+1721 -> util.triggerEvent(document, "impress:help:add", { command: "F6 / ESC", text: "Fullscreen: Enter / Exit", row: 200 });
+----------------------------------
+I prefer the use of F6 then F5 because it is commonly used for refreshing the page
+
+Remove space in the list in the impress console to reduce the space
+----------------------------------
+2686 <- 
+----------------------------------
+2686 ->  #impressconsole div#notes ul {
+		margin-top: 5px;
+                margin-bottom: 5px;
+         }
+----------------------------------
+
+Remove substep when leave the slide not only when enter
+----------------------------------
+4050 <- 
+----------------------------------
+4050 -> // When leave a step, make sure that all substeps are hidden
+    	document.addEventListener("impress:stepleave", function(event) {
+        	var step = event.target;
+        	var visible = step.querySelectorAll(".substep-visible");
+        	for (var i = 0; i < visible.length; i++) {
+            		visible[i].classList.remove("substep-visible");
+        	}
+    	}, false);
+----------------------------------
+
+

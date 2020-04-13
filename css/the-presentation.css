@@ -1,0 +1,1158 @@
+/* Colors*/
+
+ :root {
+    --c1: #247ba0;
+    --c11: #44aad5;
+    --c2: #70c1b3;
+    --c3: #b2dbbf;
+    --c4: #f3ffbd;
+    --c5: #ff1654;
+    --c6: #BFBFBF;
+    --s1: #655e89ff;
+    --s2: #c0336aff;
+    --s3: #a87d8eff;
+    --s4: #71c0b2ff;
+    --zIndexArrow: 1;
+}
+
+#impress {
+    display: none;
+}
+
+.circle-left {
+    background: var(--c1);
+}
+
+.bg-img {
+    width: 10902px;
+    height: 5792px;
+    left: -2000px;
+    top: -2000px;
+    transform: translateZ(-1000px);
+    opacity: 0.7;
+    /*    width: 8000px;
+    height: 5792px;
+    left: -543px;
+    top: -2856px; */
+}
+
+.step:not(.active) .title h1.title-animation {
+    font-size: 0.7em;
+}
+
+.step:not(.active) .title hr.title-animation {
+    transform-origin: top left;
+    transition: transform 1s;
+    transform: scaleX(0.6);
+}
+
+
+/* Specific layout */
+
+#intro1 .video-box {
+    position: absolute;
+    top: -500px;
+    left: 600px;
+    width: 1000px;
+    height: 999px;
+    z-index: -1;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+#intro1 .video {
+    margin-top: 400px;
+    margin-left: -50px;
+}
+
+#intro3 #question {
+    position: fixed;
+    bottom: 100px;
+}
+
+#intro4 #solution {
+    text-align: center;
+    color: var(--c2);
+    margin-top: 100px;
+}
+
+.app-mini {
+    opacity: 0;
+}
+
+#university .robo-img {
+    width: 110%;
+    margin-top: 45px;
+    margin-left: -58px;
+}
+
+#university .robo-img-box {
+    border-radius: 50%;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    right: -66px;
+    bottom: -168px;
+    background: var(--c11);
+    z-index: -1;
+}
+
+#university .ritar-img-box {
+    border-radius: 50%;
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    left: -66px;
+    top: 376.3px;
+    background: var(--c11);
+    z-index: -1;
+}
+
+#university .ritar-img {
+    width: 110%;
+    margin-top: 36px;
+    margin-left: 4px;
+}
+
+#university .pid-img-box {
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    position: absolute;
+    top: 50.0px;
+    background: var(--c11);
+    z-index: -1;
+    right: -31px;
+}
+
+#university .pid-img {
+    width: 176%;
+    margin-top: 70px;
+    margin-left: -180px;
+}
+
+#university .route-img-box {
+    border-radius: 50%;
+    width: 350px;
+    height: 350px;
+    position: absolute;
+    left: -58px;
+    top: -40px;
+    background: var(--c11);
+    z-index: -1;
+}
+
+#university .route-img {
+    height: 100%;
+}
+
+#university .fork-bomb {
+    left: -44px;
+    position: absolute;
+    top: 652px;
+    background: var(--c11);
+    border-radius: 20px;
+    font-family: monospace;
+    color: var(--c4);
+    font-size: 1.3em;
+}
+
+#university .me-img-box {
+    text-align: center;
+}
+
+#university .me-img {
+    width: 150px;
+    border-radius: 75px;
+}
+
+#circ-university {
+    transform: translate3d(180px, -100px, 0px);
+    background: var(--c1);
+    transition: background 1s;
+}
+
+.active #circ-university {
+    background: var(--c11);
+}
+
+#circ-phd {
+    transform: scale(2.5) translate3d(70px, -585px, 0px);
+}
+
+#master-thesis h1 {
+    background: #00000090;
+    border-radius: 10px
+}
+
+#circ-master-thesis {
+    background-size: 705px;
+    background-position-x: right;
+    background-position-y: -70px;
+}
+
+#master-thesis .advisor {
+    text-align: right;
+}
+
+#master-thesis .control-box {
+    overflow: hidden;
+    float: right;
+    margin-top: 30px;
+}
+
+#master-thesis .video {
+    width: 550px;
+    border-radius: 50px;
+}
+
+#master-thesis .ref {
+    background: #00000090;
+    border-radius: 10px;
+}
+
+#mt-controlsystem .control-img {
+    background: white;
+    border-radius: 20px;
+    z-index: 0;
+    width: 45%;
+    padding: 20px;
+    position: absolute;
+    left: 600px;
+}
+
+#mt-controlsystem .legge {
+    width: 450px;
+    background: white;
+    border-radius: 20px;
+    position: absolute;
+}
+
+#mt-controlsystem .gdl {
+    width: 500px;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    position: absolute;
+    top: 450px;
+}
+
+#mt-controlsystem2.active {
+    background: white;
+    color: black;
+}
+
+#mt-controlsystem2 hr {
+    border-color: black;
+}
+
+#stim {
+    width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#mt-controlsystem2 .cont {
+    border: 5px solid var(--c1);
+    border-radius: 20px;
+    text-align: center;
+    height: 100px;
+    margin-top: 50px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+#mt-controlsystem3.active {
+    background: white;
+    color: black;
+}
+
+#mt-controlsystem3 hr {
+    border-color: black;
+}
+
+#mt-controlsystem3 .video-container {
+    width: 96%;
+    overflow: hidden;
+    border: 3px solid black;
+    border-radius: 5px;
+}
+
+#mt-adaptive.active {
+    background: white;
+    color: black;
+}
+
+#mt-adaptive hr {
+    border-color: black;
+}
+
+#phd-pureforme .rotation {
+    background: var(--s2);
+    width: 170px;
+    position: absolute;
+    height: 170px;
+    left: 0px;
+    top: 500px;
+    padding-top: auto;
+    border-radius: 50%;
+    display: flex;
+    transition: left 2s, top 2s;
+}
+
+#phd-pureforme.next .rotation {
+    left: 1500px;
+}
+
+#phd-pureforme .rotation .slide-name {
+    font-size: 1.3vw;
+    margin: auto;
+}
+
+#phd-pureforme.active .rotation {
+    left: 200px;
+}
+
+#phd-pureforme.prev .rotation {
+    left: -400px;
+}
+
+#phd-libpyNet .rotation {
+    background: var(--s2);
+    width: 170px;
+    position: absolute;
+    height: 170px;
+    left: 0px;
+    top: 500px;
+    padding-top: auto;
+    border-radius: 50%;
+    display: flex;
+    transition: left 2s, top 2s;
+}
+
+#phd-libpyNet.next .rotation {
+    left: 2500px;
+}
+
+#phd-libpyNet .rotation .slide-name {
+    font-size: 1.5vw;
+    margin: auto;
+}
+
+#phd-libpyNet.present .rotation {
+    left: 200px;
+}
+
+#phd-libpyNet.prev .rotation {
+    left: -400px;
+}
+
+#phd-pureforme .video-container {
+    opacity: 0;
+    position: absolute;
+    left: 605px;
+    top: 350px;
+    overflow: hidden;
+    border-radius: 150px 0px 0px 0px;
+    transition: opacity 1s;
+    width: 700px;
+}
+
+#phd-pureforme.present .video-container {
+    opacity: 1;
+}
+
+#phd-pureforme .interface {
+    opacity: 0;
+    position: absolute;
+    left: 1050px;
+    top: 140px;
+    transition: opacity 1s;
+}
+
+#phd-pureforme .motore-img {
+    opacity: 0;
+    width: 264px;
+    position: absolute;
+    left: 760px;
+    top: 140px;
+    transition: opacity 1s;
+}
+
+#phd-pureforme.present .motore-img {
+    opacity: 1;
+}
+
+#phd-pureforme.present .interface {
+    opacity: 1;
+}
+
+#phd-libpyNet .pynet-page {
+    z-index: -5;
+    width: 700px;
+    position: absolute;
+    left: 600px;
+    top: 1000px;
+    transition: top 20s linear;
+}
+
+#phd-libpyNet.present .pynet-page {
+    top: -3300px;
+}
+
+#phd-pre-veritas .system {
+    width: 400px;
+    position: absolute;
+    top: 300px;
+    left: 800px;
+    border-radius: 50px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+#phd-veritas.present .control-box {
+    opacity: 1;
+}
+
+#phd-veritas .video {
+    width: 750px;
+    border-radius: 50px;
+}
+
+#phd-pre-veritas.present .system {
+    opacity: 1;
+}
+
+#phd-pre-polywec .video {
+    width: 700px;
+    position: absolute;
+    right: 50px;
+    border-radius: 50px;
+    top: 220px;
+}
+
+#phd-veritas .control-box {
+    opacity: 0;
+    overflow: hidden;
+    float: left;
+    margin-top: 50px;
+    border-radius: 50px;
+    transition: opacity 1s;
+}
+
+#img-hand {
+    left: 40px;
+    position: absolute;
+    width: 380px;
+    border-radius: 50px;
+    top: 130px;
+}
+
+#img-model {
+    width: 380px;
+    top: 420px;
+    position: absolute;
+    border-radius: 50px;
+    left: 40px;
+}
+
+#phd-veritas .video-pre-pilot-container {
+    overflow: hidden;
+    border-radius: 50px;
+    right: 120px;
+    position: absolute;
+    top: 390px;
+}
+
+#phd-veritas .video-pilot-container {
+    overflow: hidden;
+    border-radius: 50px;
+    right: 40px;
+    position: absolute;
+    top: 440px;
+}
+
+
+/* #vr-workdone .video-pre-pilot-container {
+    overflow: hidden;
+    border-radius: 50px;
+    left: 130px;
+    position: absolute;
+    top: 470px;
+} */
+
+#video-pre-pilot {
+    width: 500px;
+    border-radius: 50px;
+}
+
+
+/* #vr-workdone .video-pilot-container {
+    overflow: hidden;
+    border-radius: 50px;
+    right: 40px;
+    position: absolute;
+    top: 440px;
+} */
+
+#video-pilot {
+    width: 600px;
+    border-radius: 50px;
+}
+
+#ver-control-img-container {
+    text-align: center;
+    position: absolute;
+    background: white;
+    border-radius: 50px;
+    right: 120px;
+    top: 130px;
+}
+
+#ver-controlsystem.active {
+    background: white;
+    color: black;
+}
+
+#ver-controlsystem hr {
+    border-color: black;
+}
+
+#ver-contr-adapt {
+    width: 450px;
+    margin-top: -20px;
+}
+
+#ver-controlsystem .cont {
+    border: 5px solid var(--c1);
+    border-radius: 20px;
+    text-align: center;
+    height: 100px;
+    margin-top: 50px;
+    width: 300px;
+    margin-left: auto;
+    margin-right: 20px;
+}
+
+#ver-controlsystem2.active {
+    background: white;
+    color: black;
+}
+
+#ver-controlsystem2 hr {
+    border-color: black;
+}
+
+#ver-controlsystem2 {
+    border-color: black;
+}
+
+#ver-controlsystem2 .video-container {
+    width: 96%;
+    overflow: hidden;
+    border: 3px solid black;
+    border-radius: 5px;
+    padding: 0px;
+}
+
+#ver-adaptive.active {
+    background: white;
+    color: black;
+}
+
+#ver-adaptive hr {
+    border-color: black;
+}
+
+#phd-polywec ul {
+    left: 575px;
+    position: absolute;
+}
+
+#phd-polywec li:first-child,
+#phd-polywec li:last-child {
+    margin-left: -30px;
+}
+
+#phd-polywec h1 {
+    background: #00000090;
+    border-radius: 10px;
+}
+
+#phd-polywec .black-hr {
+    border: 1px solid black;
+    position: absolute;
+    width: 466px;
+    top: 92px;
+}
+
+#phd-polywec .video1 {
+    margin-left: 130px;
+    margin-top: 175px;
+}
+
+#phd-polywec .video2 {
+    margin-top: -30px;
+    margin-left: 105px;
+}
+
+#phd-polywec .video3 {
+    margin-top: -10px;
+    margin-left: -150px;
+}
+
+#phd-polywec .video-working {
+    width: 60%;
+    position: absolute;
+    top: 173px;
+    left: 474px;
+    overflow: hidden;
+    border-radius: 30px;
+}
+
+#phd-polywec .video-container {
+    width: 1000px;
+    height: 1000px;
+    transform: translate3d(-425px, -110px, 0px);
+    display: flex;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+    background: white;
+    overflow: hidden;
+    z-index: -1;
+    opacity: 0;
+}
+
+#phd-polywec .ref {
+    background: #00000090;
+    border-radius: 10px;
+    bottom: -10px;
+}
+
+#phd-polywec .output-graph {
+    width: 70%;
+    margin-left: 300px;
+    margin-top: 100px;
+}
+
+#circ-phd-polywec-opt .circle-name {
+    font-size: 11vw;
+}
+
+#poly-owc {
+    position: absolute;
+    transform: translate(2073px, -178px) scale(10);
+    transform-origin: right top;
+}
+
+#owcdyn {
+    background: white;
+    border-radius: 30px;
+    width: 360px;
+    position: absolute;
+    padding: 20px;
+}
+
+#icddeg {
+    background: white;
+    border-radius: 30px;
+    width: 360px;
+    position: absolute;
+    top: 480px;
+    padding: 20px;
+}
+
+#etaFplane {
+    background: white;
+    border-radius: 30px;
+    width: 360px;
+    position: absolute;
+    top: 387px;
+    padding: 20px;
+    left: 550px;
+}
+
+#phd-polywec-opt2 {
+    z-index: 10;
+}
+
+#phd-polywec-opt2 .rect-all {
+    background: white;
+    color: black;
+}
+
+#phd-polywec-opt3 .rect-all {
+    background: white;
+    color: black;
+}
+
+#phd-polywec-opt2 .column div {
+    margin: 0;
+}
+
+#phd-polywec-opt3 {
+    text-align: center;
+}
+
+#phd-polywec-opt4 {
+    text-align: center;
+}
+
+.white.active {
+    background: white;
+    color: black;
+}
+
+.white.active hr {
+    border-color: black;
+}
+
+#phd-polywec-opt3 .output-graph {}
+
+#phd-polywec-opt4 .output-graph {
+    padding: 30px;
+}
+
+#phd-polywec-opt5 .slide {
+    position: absolute;
+    top: 0px;
+}
+
+#phd-polywec-opt5 .output-graph {
+    background: white;
+    width: 600px;
+    border-radius: 10px;
+}
+
+#post-doc .rotation .slide-name {
+    font-size: 1.3vw;
+    margin: auto;
+}
+
+#adaptive-controls {
+    background: var(--c1);
+    width: 170px;
+    position: absolute;
+    height: 170px;
+    left: 0px;
+    top: 590px;
+    padding-top: auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+#data-driven {
+    background: var(--c5);
+    width: 170px;
+    position: absolute;
+    height: 170px;
+    left: 0px;
+    top: 390px;
+    padding-top: auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+#model-data-driven {
+    background: var(--c2);
+    width: 170px;
+    position: absolute;
+    height: 170px;
+    left: 275px;
+    top: 495px;
+    padding-top: auto;
+    border-radius: 50%;
+    display: flex;
+}
+
+#pd-dreams4cars .agent-architecture {
+    position: absolute;
+    top: 142px;
+    left: 146px;
+    width: 900px;
+    height: 590px;
+}
+
+#svg-agent {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.blinking {
+    animation: myBlinking 1.2s infinite;
+}
+
+.hide-arrow {
+    opacity: 0;
+    fill-opacity: 0.0;
+    stroke-opacity: 0.0;
+}
+
+.show-arrow {
+    opacity: '';
+    fill-opacity: '';
+    stroke-opacity: '';
+}
+
+@keyframes myBlinking {
+    0% {
+        opacity: 1;
+        fill-opacity: 1.0;
+        stroke-opacity: 1.0;
+    }
+    49% {
+        opacity: 1;
+        fill-opacity: 1.0;
+        stroke-opacity: 1.0;
+    }
+    60% {
+        opacity: 1;
+        fill-opacity: 1.0;
+        stroke-opacity: 1.0;
+    }
+    99% {
+        opacity: 1;
+        fill-opacity: 0.0;
+        stroke-opacity: 0.0;
+    }
+    100% {
+        opacity: 1;
+        fill-opacity: 1.0;
+        stroke-opacity: 1.0;
+    }
+}
+
+#pd-dreams4cars.active #circ-pd-dreams4cars {
+    opacity: 0;
+}
+
+#pd-dreams4cars .img-motorcortex {
+    width: 504px;
+    position: absolute;
+    top: 385px;
+    border-radius: 50px;
+    display: none;
+    left: 137px;
+}
+
+#pd-dreams4cars .video-box {
+    border-radius: 36% 64% 62% 38% / 55% 47% 53% 45%;
+    overflow: hidden;
+    width: 89%;
+    opacity: 1;
+    z-index: -2;
+    position: absolute;
+    top: 138px;
+    left: 122px;
+}
+
+#pd-dreams4cars .video1 {
+    width: 100%;
+    display: none;
+}
+
+#pd-dreams4cars-activities .img-lateral-control {
+    width: 680px;
+    position: absolute;
+    top: 267px;
+    border-radius: 50px;
+    display: none;
+}
+
+#pd-dreams4cars-activities .model-nn {
+    width: 560px;
+    position: absolute;
+    top: 260px;
+    left: 100px;
+    border-radius: 30px;
+    background: white;
+    padding: 5px 15px 15px 15px;
+}
+
+#pd-dreams4cars-activities .video-box-ped {
+    width: 638px;
+    position: absolute;
+    top: 113px;
+    left: 44px;
+    z-index: -2;
+    border-radius: 49%;
+    overflow: hidden;
+    padding: 0px;
+    height: 360px;
+}
+
+#pd-d4c-fifth {
+    background: #00000090;
+    border-radius: 10px;
+    bottom: -10px;
+}
+
+#d4c-car-img {
+    width: 830px;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: -50px;
+}
+
+#d4c-car-sum-force {
+    margin-top: 363px;
+    position: absolute;
+    color: black;
+}
+
+#d4c-data {
+    position: absolute;
+    background: white;
+    width: 400px;
+    top: 480px;
+    left: 866px;
+    padding: 30px;
+    border-radius: 50px
+}
+
+#pd-d4c-mnn-inverse .inverse,
+#pd-d4c-mnn-inverse .direct-inverse {
+    width: 80%;
+    padding: 10px;
+    background: white;
+    border-radius: 30px;
+}
+
+#pd-d4c-mnn-inverse-results div {
+    margin: 0;
+}
+
+#pd-d4c-mnn-inverse-results #media-video-11 {
+    width: 250%;
+    margin-left: -75%;
+}
+
+#pd-d4c-mnn-inverse-results .video {
+    width: 98%;
+}
+
+#pd-d4c-mnn-inverse-results .video-box1 .name {
+    position: absolute;
+    margin-top: -635px;
+    background: #00000090;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 53px;
+    font-size: 0.9em;
+}
+
+#pd-d4c-mnn-inverse-results .video-box2 .name {
+    position: absolute;
+    margin-top: -421px;
+    background: #00000090;
+    border-radius: 20px;
+    padding: 10px;
+    margin-left: 504px;
+}
+
+#pd-d4c-mnn-inverse-results .video-box3 .name {
+    position: absolute;
+    margin-top: -202px;
+    background: #00000090;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 0.6em;
+}
+
+#pd-d4c-mnn-inverse-results .video-box4 .name {
+    position: absolute;
+    margin-top: -202px;
+    background: #00000090;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: 0.6em;
+}
+
+#pd-d4c-rl.active #circ-pd-d4c-rl {
+    opacity: 0;
+}
+
+#pd-d4c-rl .bufferreplay {
+    width: 200px;
+    position: absolute;
+    top: 220px;
+    left: 990px;
+}
+
+#pd-d4c-rl .rl-core {
+    width: 264px;
+    background: white;
+    color: black;
+    text-align: center;
+    height: 99px;
+    padding-top: 50px;
+    position: absolute;
+    top: 556px;
+    left: 1046px;
+}
+
+#pd-d4c-rl-core,
+#pd-d4c-rl-opends,
+#pd-d4c-rl-nn {
+    z-index: -2;
+}
+
+#pd-d4c-rl .neural-net {
+    width: 200px;
+    position: absolute;
+    top: 584px;
+    left: 690px;
+}
+
+#svg-agent-rl {
+    position: absolute;
+    width: 1270px;
+    top: 35px;
+    left: 515px;
+    height: 100%;
+}
+
+#pd-d4c-rl-loop h1 {
+    background: #00000090;
+    border-radius: 10px;
+}
+
+#pd-d4c-rl-opends .ped-move {
+    width: 44%;
+    position: absolute;
+    top: 193px;
+    left: 186px;
+    background: #00000050;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#pd-d4c-rl-results2 .video {
+    width: 90%;
+    margin-left: 100px;
+}
+
+#pd-d4c-rl-nn .in-out-net {
+    width: 80%;
+    margin-top: -20px;
+    margin-left: 150px;
+}
+
+#pd-d4c-rl-results2 .video-box,
+#pd-d4c-rl-results3 .video-box {
+    overflow: hidden;
+    height: 570px;
+    width: 94%;
+}
+
+#future.active #circ-future {
+    opacity: 0;
+}
+
+.rect-black {
+    background: none;
+    color: white;
+}
+
+#circ-future-robot {
+    border-right: solid 5px;
+    border-bottom: solid 5px;
+}
+
+#circ-future-vehicle {
+    border-left: solid 5px;
+    border-bottom: solid 5px;
+}
+
+#circ-future-material {
+    border-left: solid 5px;
+    border-top: solid 5px;
+}
+
+#circ-future-other {
+    border-right: solid 5px;
+    border-top: solid 5px;
+}
+
+#finish .body-slide {
+    width: 43%;
+    position: absolute;
+    top: 562px;
+    text-align: right;
+    right: 0;
+}
+
+#future-vehicle-real .output {
+    width: 396px;
+    position: absolute;
+    top: 519px;
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    left: 867px;
+}
+
+#future-vehicle-real .robust {
+    width: 559px;
+    position: absolute;
+    top: 565px;
+    padding: 10px;
+    background: white;
+    border-radius: 20px;
+    left: 269px;
+}
+
+#circ-future-vehicle-real {
+    border-left: solid 5px;
+}
+
+#circ-future-vehicle-simulator {
+    border-right: solid 5px;
+}
+
+#circ-future-other-simulink {
+    border-left: solid 5px;
+}
+
+#circ-future-other-pedestrian {
+    border-right: solid 5px;
+}
+
+
+/* #circ-future-founding {
+    border-left: solid 5px;
+} */
+
+#future-other-simulink .mahalanobis {
+    width: 90%;
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+#future-vehicle-simulator .human-agent {
+    width: 430px;
+    position: absolute;
+    bottom: 0px;
+    left: 384px;
+    background: #00000090;
+    z-index: -1;
+    padding: 20px;
+    border-radius: 30px;
+}
+
+#future-material .losanga {
+    width: 100%;
+    background: white;
+    border-radius: 30px;
+}
+
+#future-founding .names>li {
+    padding: 0px;
+}

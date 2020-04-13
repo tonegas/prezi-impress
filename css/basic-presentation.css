@@ -1,0 +1,389 @@
+/* Basic slide structure
+    <div class="step" id="TITLE" data-scale="1" data-rotate="0" data-x="0" data-y="0" data-z="0">
+        <div class="body-slide">
+            <h1>Slide title</h1>
+            <hr>  
+            <div class="ref">
+                <hr> 
+                McKerrow, Phillip John, and Phillip McKerrow. Introduction to robotics. Vol. 6. Sydney: Addison-Wesley, 1991.
+                <br>
+                ...
+            </div>
+            <div class="row"> 
+                <div class="column">
+                    Column 1
+                    <ul>
+                        <li>First</li>
+                        <li>Second</li>
+                    </ul>
+                    <span style="color:red">Column 1 second list</span>
+                    <ul style="color:darkgreen">
+                        <li>First</li>
+                        <li>Second</li>
+                    </ul>
+                </div>
+                <divclass="column">
+                    Limits:
+                    <ul>
+                        <li>Huge amount of data</li>
+                        <li>Long time to collect and label the data </li>
+                        <li>Can be dangerous collect the data </li>
+                    </ul>
+
+                </div>
+            </div>
+            <div>
+                using physical and bio inspiration to bias the network
+            </div>
+        </div>
+        <div class="notes"></div>
+    </div>
+*/
+
+
+/* Colors*/
+
+:root {
+    /* The basic color of the text*/
+    --ctext: white;
+    /* color of the background */
+    --cback: black;
+    /* Color of the object */
+    --cbasic: darkslategray;
+    /* Todo color */
+    --ctodo: red;
+    /* Default margin and padding*/
+    --b-mar: 5px;
+}
+
+
+/* visible */
+
+
+/* .step:not(.active):not(.visible-step) {
+    display: none;
+}
+
+.step.active:not(.visible-step) {
+    display: "";
+    z-index: -10;
+}
+
+.step:not(.active).visible {
+    display: "";
+} */
+
+
+/* Animation between slides*/
+
+.step.active {
+    z-index: 10;
+}
+
+.next .body-slide {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.prev .body-slide {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.past.overview .body-slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.future.overview .body-slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.past:not(overview) .body-slide {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.future:not(overview) .body-slide {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.prev.active .body-slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.next.active .body-slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.step:not(.active) [data-none].slide:not(.visible) {
+    display: none;
+}
+
+.past .slide:not(.visible) {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.future .slide:not(.visible) {
+    opacity: 0.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.past .slide.visible {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.future .slide.visible {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.prev.active .slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.next.active .slide {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.step:not(.active) .slide:not(.visible) .slide-name {
+    opacity: 1.0;
+    transition: opacity 1s, border-width 1s, font-size 1s;
+}
+
+.step.future .slide:not(.visible) .slide-name {
+    opacity: 0;
+}
+
+.step.past .slide:not(.visible) .slide-name {
+    opacity: 0;
+}
+
+.step.active .slide .slide-name {
+    opacity: 0;
+    transition: opacity 1s, border-width 1s;
+}
+
+
+/* The substep is visible only when is active 
+   add to the substep a class only-active 
+*/
+
+
+/* 
+.step.active .substep {
+    transition: opacity 1s;
+} */
+
+
+/* .step.active .only-active.substep.substep-visible:not(.substep-active) {
+    opacity: 0;
+    display: none;
+}
+
+.step.active .only-active.substep.substep-visible.substep-active {
+    opacity: "";
+    display: "";
+} */
+
+
+/* Basic layout colors */
+
+.step {
+    color: var(--ctext);
+    font-family: 'MyFont', sans-serif;
+}
+
+.TODO {
+    color: var(--ctodo);
+    position: fixed;
+    background: var(--cback);
+    opacity: 0.8;
+    z-index: 100;
+    bottom: 0px;
+}
+
+.impress-progress {
+    font-family: 'MyFont', sans-serif;
+}
+
+
+/* h1, h2, h3, lu layout */
+
+h1,
+h2,
+h3 {
+    margin-bottom: 0.1em;
+    margin-top: 0.1em;
+    text-align: left;
+}
+
+h1 {
+    font-size: 1.22em;
+}
+
+h2 {
+    font-size: 1.13em;
+}
+
+h3 {
+    font-size: 1.1em;
+}
+
+hr {
+    border: 1px solid var(--ctext);
+    border-radius: 1px;
+}
+
+ul {
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
+
+ul ul {
+    font-size: 0.9em;
+}
+
+
+/* Body slide margins */
+
+.body-slide li {
+    padding: var(--b-mar);
+    margin: var(--b-mar);
+}
+
+.body-slide div {
+    padding: var(--b-mar);
+    margin: var(--b-mar);
+}
+
+.body-slide div.row {
+    padding: 0px;
+    margin: 0px;
+}
+
+.body-slide .row {
+    display: flex;
+}
+
+.body-slide .column {
+    flex: 50%;
+}
+
+
+/* Backgound image */
+
+.bg-img {
+    z-index: -2;
+    position: absolute;
+}
+
+
+/* Basic left circle */
+
+.rect-all {
+    width: 1350px;
+    height: 755px;
+    display: flex;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    opacity: 1;
+    z-index: -5;
+    background: white;
+    color: black;
+}
+
+.circle-left {
+    width: 1000px;
+    height: 1000px;
+    transform: translate3d(-410px, -100px, 0px);
+    display: flex;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+    opacity: 1;
+    z-index: -5;
+    background: var(--cbasic);
+}
+
+.circle-center {
+    width: 1000px;
+    height: 1000px;
+    transform: translate3d(180px, -100px, 0px);
+    display: flex;
+    left: 0px;
+    top: 0px;
+    position: absolute;
+    -webkit-border-radius: 500px;
+    -moz-border-radius: 500px;
+    border-radius: 500px;
+    opacity: 1;
+    z-index: -5;
+    background: var(--cbasic);
+}
+
+.slide-name {
+    position: relative;
+    text-align: center;
+    font-size: 12vw;
+    margin: auto;
+}
+
+
+/* Title tayout */
+
+.title .logo {
+    width: 150px;
+    position: fixed;
+    top: 55px;
+    right: 75px;
+    filter: invert(1);
+}
+
+.title {
+    margin-bottom: 0.5em;
+    margin-left: 3%;
+    margin-right: 3%;
+    margin-top: 16%;
+    text-align: left;
+}
+
+.title h1 {
+    font-size: 1.05em;
+    line-height: 1.3em;
+}
+
+
+/* References */
+
+.body-slide .ref {
+    font-size: 0.6em;
+    position: fixed;
+    bottom: 0px;
+    width: 90%;
+}
+
+
+/* Vertical video centering */
+
+.helper {
+    display: inline-block;
+    height: 100%;
+    vertical-align: middle;
+}
+
+.video {
+    vertical-align: middle;
+}
