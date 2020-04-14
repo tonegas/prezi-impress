@@ -5,6 +5,8 @@ $(document).ready(function() {
     var slide_from = null;
     rootElement.addEventListener("impress:stepenter", function(event) {
         if (slide_from) {
+            /* Reset the of the objects that are modified to the default */
+            /* It is useful when I show element of other slide */
             slide_from.find(".substep").each(function(index, el) {
                 $("." + $(el).attr("data-show-only")).css({
                     display: "",
@@ -16,7 +18,7 @@ $(document).ready(function() {
                     opacity: "",
                     transition: "opacity 1s"
                 });
-                $("." + $(el).attr("data-hide-only-none")).css({
+                $("." + $(el).attr("data-none-only")).css({
                     display: "",
                     opacity: "",
                     transition: "opacity 1s"
@@ -36,6 +38,7 @@ $(document).ready(function() {
                 }
             });
         }
+        /* Is used when I start from a slide (F5 - refesh) */
         $(".step.active .substep").each(function(index, el) {
             $("." + $(el).attr("data-show-only")).css({
                 display: "none",
@@ -46,7 +49,7 @@ $(document).ready(function() {
                 opacity: 1,
                 transition: "opacity 1s"
             });
-            $("." + $(el).attr("data-hide-only-none")).css({
+            $("." + $(el).attr("data-none-only")).css({
                 display: "",
             }).stop(true).animate({
                 opacity: 1,
@@ -88,6 +91,7 @@ $(document).ready(function() {
                 - data-hide="CLASS" -> { opacity=0; }
             the CLASS indicates which class of object has to be hidden 
         */
+        /* Reset all condition at each substep */
         $(".step.active .substep").each(function(index, el) {
             $("." + $(el).attr("data-show-only")).css({
                 opacity: 0,
@@ -99,7 +103,7 @@ $(document).ready(function() {
                 opacity: 1,
                 transition: "opacity 1s"
             });
-            $("." + $(el).attr("data-hide-only-none")).css({
+            $("." + $(el).attr("data-none-only")).css({
                 display: "",
             }).stop(true).animate({
                 opacity: 1,
@@ -134,7 +138,7 @@ $(document).ready(function() {
                 opacity: 1,
                 transition: "opacity 1s"
             });
-            $("." + $(el).attr("data-hide-only-none")).css({
+            $("." + $(el).attr("data-none-only")).css({
                 display: "",
             }).stop(true).animate({
                 opacity: 1,
@@ -170,6 +174,7 @@ $(document).ready(function() {
                 }
             }
         });
+        /* Active the condition of the each active substep */
         $(".step.active .substep.substep-active").each(function(index, el) {
             $("." + $(el).attr("data-show-only")).css({
                 display: "",
@@ -180,11 +185,11 @@ $(document).ready(function() {
                 opacity: 0,
                 transition: "opacity 1s"
             });
-            $("." + $(el).attr("data-hide-only-none")).stop(true).animate({
+            $("." + $(el).attr("data-none-only")).stop(true).animate({
                 opacity: 0,
             }, {
                 complete: function() {
-                    $("." + $(el).attr("data-hide-only-none")).css({
+                    $("." + $(el).attr("data-none-only")).css({
                         "display": "none"
                     });
                 }
@@ -227,7 +232,7 @@ $(document).ready(function() {
                 opacity: 1,
                 transition: "opacity 1s"
             });
-            $("." + $(el).attr("data-hide-only-none")).css({
+            $("." + $(el).attr("data-none-only")).css({
                 display: "",
             }).stop(true).animate({
                 opacity: 1,

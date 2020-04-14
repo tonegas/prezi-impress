@@ -138,7 +138,7 @@ table {
     /* Todo color */
     --ctodo: red;
     /* Default margin and padding*/
-    --b-mar: 5px;
+    --b-mar: 10px;
     /* Slide size x */
     --x-size: 1200px;
     /* Slide size y */
@@ -578,13 +578,13 @@ hr {
 
 .slide-body li,
 .slide-border li {
-    padding: var(--b-mar);
+    /* padding: var(--b-mar); */
     margin: var(--b-mar);
 }
 
 .slide-body div,
 .slide-border div {
-    padding: var(--b-mar);
+    /* padding: var(--b-mar); */
     margin: var(--b-mar);
 }
 
@@ -688,4 +688,22 @@ hr {
 
 .circle-center {
     transform: scale(2) translate3d(58px, 40px, 0px);
+}
+
+@keyframes fedeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
 }

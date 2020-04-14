@@ -190,7 +190,7 @@
                 </ul>
             </div>
         </div>
-        <div class="step" id="dynamic-substep-show-only" data-scale="1" data-rotate="0" data-x="-250" data-rel-y="1000" data-z="0">
+        <div class="step" id="dynamic-substep-show" data-scale="1" data-rotate="0" data-x="-250" data-rel-y="1000" data-z="0">
             <div class="slide-body slide-border">
                 <h1>Show objects only when substep is active</h1>
                 <hr>
@@ -204,9 +204,9 @@
             &lt;li class="substep" data-show-only="img2">Image 2&lt;/li>
         &lt;/ul>
     &lt;/div>
-    &lt;div class="column">
-        &lt;img class="text-bg img1" style="width:100%" src="img/uni/img1.png">
-        &lt;img class="text-bg img2" style="width:100%" src="img/uni/img2.svg">
+    &lt;div class="column" style="position: relative;">
+        &lt;img class="text-bg img1" style="position:absolute; width:100%" src="img/uni/img1.png">
+        &lt;img class="text-bg img2" style="position:absolute; width:100%" src="img/uni/img2.svg">
     &lt;/div>
 &lt;/div></code>
                 </pre>
@@ -219,45 +219,126 @@
                             <li class="substep" data-show-only="img2">Image 2</li>
                         </ul>
                     </div>
-                    <div class="column">
-                        <img class="text-bg img1" style="width:100%" src="img/1gdl.png">
-                        <img class="text-bg img2" style="width:100%" src="img/pid.svg">
+                    <div class="column" style="position: relative;">
+                        <img class="text-bg img1" style="position:absolute; width:100%" src="img/1gdl.png">
+                        <img class="text-bg img2" style="position:absolute; width:100%" src="img/pid.svg">
                     </div>
                 </div>
             </div>
         </div>
         <div class="step" id="dynamic-substep-hide" data-scale="1" data-rotate="0" data-x="-250" data-rel-y="1000" data-z="0">
             <div class="slide-body slide-border">
-                <h1>Hide objects when substep is active</h1>
+                <h1>Hide objects only when substep is active</h1>
                 <hr>
                 <pre style="font-size: 0.5em;">
                     <code>
 &lt;div class="row">
     &lt;div class="column">
-        How to hide objects using substeps
+        List
         &lt;ul>
-            &lt;li class="substep" data-show-only="img4" data-hide-only-none="img3">Hide the img1 and show img2&lt;/li>
-            &lt;li class="substep">Second step&lt;/li>
+            &lt;li class="substep" data-hide-only="img1">Image 1&lt;/li>
+            &lt;li class="substep" data-hide-only="img2">Image 2&lt;/li>
         &lt;/ul>
     &lt;/div>
-    &lt;div class="column">
-        &lt;img class="text-bg img3" style="width:100%" src="img/img1.png">
-        &lt;img class="text-bg img4" style="width:100%" src="img/img2.svg">
+    &lt;div class="column" style="position: relative;">
+        &lt;img class="text-bg img1" style="position:absolute; width:100%" src="img/uni/img1.png">
+        &lt;img class="text-bg img2" style="position:absolute; width:100%" src="img/uni/img2.svg">
     &lt;/div>
 &lt;/div></code>
                 </pre>
                 <hr>
                 <div class="row">
                     <div class="column">
-                        Use 'data-hide-only-none' or 'data-hide-only' attribute in the object with substep class to remove or hide other objects
+                        <div>Use 'data-hide-only' attr in the substep to hide objects when the substep is active</div>
                         <ul>
-                            <li class="substep" data-show-only="img4" data-hide-only-none="img3">Hide the img1 and show img2</li>
-                            <li class="substep">Second step</li>
+                            <li class="substep" data-hide-only="img1">Hide image 1</li>
+                            <li class="substep" data-hide-only="img2">Hide image 2</li>
+                        </ul>
+                    </div>
+                    <div class="column" style="position: relative;">
+                        <img class="text-bg img1" style="position:absolute; width:100%" src="img/1gdl.png">
+                        <img class="text-bg img2" style="position:absolute; width:100%" src="img/pid.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step" id="dynamic-substep-add" data-scale="1" data-rotate="0" data-x="-250" data-rel-y="1000" data-z="0">
+            <div class="slide-body slide-border">
+                <h1>Add objects only when substep is active</h1>
+                <hr>
+                <pre style="font-size: 0.5em;">
+                    <code>
+&lt;div class="row">
+    &lt;div class="column">
+        &lt;ul>
+            &lt;li class="substep" data-add-only="substep1">Step 1&lt;/li>
+            &lt;li class="substep" data-add-only="substep2">Step 2&lt;/li>
+            &lt;li class="substep" data-add-only="img3">Step 3&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+    &lt;div class="column">
+        &lt;img class="text-bg substep1" style="width:100%; background:blue;" src="img/pid.svg">
+        &lt;img class="text-bg substep1 substep2" style="width:100%; background:red;" src="img/pid.svg">
+        &lt;img class="text-bg substep2 substep3" style="width:100%; background:green; " src="img/pid.svg">
+        &lt;img class="text-bg substep3" style="width:100%; background:yellow;" src="img/pid.svg">
+    &lt;/div>
+&lt;/div></code>
+                </pre>
+                <hr>
+                <div class="row">
+                    <div class="column" style="flex: 70%;">
+                        Use 'data-add-only' to display the object in the substep:
+                        <ul>
+                            <li class="substep" data-add-only="substep1">Step 1</li>
+                            <li class="substep" data-add-only="substep2">Step 2</li>
+                            <li class="substep" data-add-only="substep3">Step 3</li>
                         </ul>
                     </div>
                     <div class="column">
-                        <img class="text-bg img3" style="width:100%" src="img/1gdl.png">
-                        <img class="text-bg img4" style="width:100%" src="img/pid.svg">
+                        <img class="text-bg substep1" style="width:100%; background:blue;" src="img/pid.svg">
+                        <img class="text-bg substep1 substep2" style="width:100%; background:red;" src="img/pid.svg">
+                        <img class="text-bg substep2 substep3" style="width:100%; background:green; " src="img/pid.svg">
+                        <img class="text-bg substep3" style="width:100%; background:yellow;" src="img/pid.svg">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="step" id="dynamic-substep-remove" data-scale="1" data-rotate="0" data-x="-250" data-rel-y="1000" data-z="0">
+            <div class="slide-body slide-border">
+                <h1>Remove objects only when substep is active</h1>
+                <hr>
+                <pre style="font-size: 0.5em;">
+                    <code>
+&lt;div class="row">
+    &lt;div class="column" style="flex: 70%;">
+        Use 'data-remove-only' to remove (display:none) the object in the substep :
+        &lt;ul>
+            &lt;li class="substep" data-remove-only="substep1">Step 1&lt;/li>
+            &lt;li class="substep" data-remove-only="substep2">Step 2&lt;/li>
+            &lt;li class="substep" data-remove-only="substep3">Step 3&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+    &lt;div class="column">
+        &lt;img class="text-bg substep1 substep2 substep3" style="width:100%; background:blue;" src="img/pid.svg">
+        &lt;img class="text-bg substep2 substep3" style="width:100%; background:red;" src="img/pid.svg">
+        &lt;img class="text-bg substep3" style="width:100%; background:green; " src="img/pid.svg">
+    &lt;/div>
+&lt;/div></code>
+                </pre>
+                <hr>
+                <div class="row">
+                    <div class="column" style="flex: 70%;">
+                        Use 'data-remove-only' to remove (display:none) the object in the substep :
+                        <ul>
+                            <li class="substep" data-remove-only="substep1">Step 1</li>
+                            <li class="substep" data-remove-only="substep2">Step 2</li>
+                            <li class="substep" data-remove-only="substep3">Step 3</li>
+                        </ul>
+                    </div>
+                    <div class="column">
+                        <img class="text-bg substep1 substep2 substep3" style="width:100%; background:blue;" src="img/pid.svg">
+                        <img class="text-bg substep2 substep3" style="width:100%; background:red;" src="img/pid.svg">
+                        <img class="text-bg substep3" style="width:100%; background:green; " src="img/pid.svg">
                     </div>
                 </div>
             </div>
@@ -622,7 +703,11 @@ Show the image from 2 to 4 and from 7 to 9
     <div class="impress-progress"></div>
 
     <script type="text/javascript" src="js/lib/impress.js"></script>
-    <script type="text/javascript" src="js/basic-presentation.js "></script>
+    <!-- <script type="text/javascript" src="js/basic-presentation.js"></script> -->
+    <script type="text/javascript" src="js/substep-effects.js"></script>
+    <script>
+        impress().init();
+    </script>
 </body>
 
 </html>
