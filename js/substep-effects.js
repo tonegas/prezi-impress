@@ -8,8 +8,6 @@
  *      indicate the objects that are subjected to some effectes:
  *      - data-show-only = "CLASS" : The objects with class="CLASS" are shown only in the corresponding substep.
  *      - data-hide-only = "CLASS" : The objects with class="CLASS" are hidden only in the corresponding substep.
- *      - data-add-only = "CLASS" : The objects with class="CLASS" are displayed only in the corresponding substep.
- *      - data-remove-only = "CLASS" : The objects with class="CLASS" are not displayed (display:none) only in the corresponding substep.
  *
  *  - Introduce the following new data attributes:
  *
@@ -61,23 +59,19 @@
     document.addEventListener("impress:stepenter", function(event) {
         /* It is used when I start from a slide (F5 - refesh) */
         event.target.querySelectorAll(".substep").forEach(sub_el => {
-            /* Hide from the beginning all elements that are referred by "data-show-only" */
-            document.querySelectorAll("." + sub_el.getAttribute("data-show-only")).forEach(to_show => {
+            /* Hide from the beginning all elements that are referred by "data-show-only" and  "data-show-from"*/
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-show-only") + "," +
+                "." + sub_el.getAttribute("data-show-from")
+            ).forEach(to_show => {
                 to_show.style.opacity = 0;
             });
-            /* Show from the beginning all elements that are referred by "data-hide-only" */
-            document.querySelectorAll("." + sub_el.getAttribute("data-hide-only")).forEach(to_show => {
+            /* Show from the beginning all elements that are referred by "data-hide-only" and "data-hide-from" */
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-hide-only") + "," +
+                "." + sub_el.getAttribute("data-hide-from")
+            ).forEach(to_show => {
                 to_show.style.opacity = 1;
-            });
-            /* Remove from the beginning all elements that are referred by "data-add-only" */
-            document.querySelectorAll("." + sub_el.getAttribute("data-add-only")).forEach(to_show => {
-                to_show.style.opacity = 0;
-                to_show.style.display = "none";
-            });
-            /* Add from the beginning all elements that are referred by "data-remove-only" */
-            document.querySelectorAll("." + sub_el.getAttribute("data-remove-only")).forEach(to_show => {
-                to_show.style.opacity = 0;
-                to_show.style.display = "";
             });
         });
         /* Reset the of the objects that are modified to the default */
@@ -86,18 +80,11 @@
             slide_from.querySelectorAll(".substep").forEach(sub_el => {
                 document.querySelectorAll(
                     "." + sub_el.getAttribute("data-show-only") + "," +
-                    "." + sub_el.getAttribute("data-hide-only")
+                    "." + sub_el.getAttribute("data-hide-only") + "," +
+                    "." + sub_el.getAttribute("data-show-from") + "," +
+                    "." + sub_el.getAttribute("data-hide-from")
                 ).forEach(to_show => {
                     to_show.style.opacity = "";
-                });
-            });
-            slide_from.querySelectorAll(".substep").forEach(sub_el => {
-                document.querySelectorAll(
-                    "." + sub_el.getAttribute("data-add-only") + "," +
-                    "." + sub_el.getAttribute("data-remove-only")
-                ).forEach(to_show => {
-                    to_show.style.opacity = "";
-                    to_show.style.display = "";
                 });
             });
         }
@@ -107,58 +94,51 @@
     function sub_effects(event) {
         /* Reset all condition at each substep */
         event.target.querySelectorAll(".substep:not(.substep-active)").forEach(sub_el => {
-            /* Hide all elements are referred by "data-show-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-show-only")).forEach(to_show => {
+            /* Hide all elements are referred by "data-show-only" and "data-show-from" in all substeps */
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-show-only") + "," +
+                "." + sub_el.getAttribute("data-show-from")
+            ).forEach(to_show => {
                 to_show.style.opacity = 0;
                 to_show.style.transition = "opacity 1s";
             });
             /* Show all elements are referred by "data-hide-only" in all substeps */
             document.querySelectorAll("." + sub_el.getAttribute("data-hide-only")).forEach(to_show => {
-                to_show.style.transition = "opacity 1s";
                 to_show.style.opacity = 1;
-            });
-            /* Remove all elements are referred by "data-add-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-add-only")).forEach(to_show => {
-                to_show.style.display = "none";
                 to_show.style.transition = "opacity 1s";
-                to_show.style.opacity = 0;
-            });
-            /* Add all elements are referred by "data-remove-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-remove-only")).forEach(to_show => {
-                to_show.style.display = "";
-                to_show.style.transition = "opacity 1s";
-                to_show.style.opacity = 1;
             });
         });
-        /* Active the condition of the each active substep */
-        event.target.querySelectorAll(".substep.substep-active").forEach(sub_el => {
-            /* Show all elements that are referred by "data-show-only" in the active substep */
-            document.querySelectorAll("." + sub_el.getAttribute("data-show-only")).forEach(to_show => {
-                to_show.style.transition = "opacity 1s";
+        /* Active the condition of the each visible substep */
+        event.target.querySelectorAll(".substep.substep-visible").forEach(sub_el => {
+            /* Show the elements that are referred between "data-show-from" and "data-show-to" */
+            /* Show all elements that are referred by "data-show-from" in the visible substeps */
+            document.querySelectorAll("." + sub_el.getAttribute("data-show-from")).forEach(to_show => {
                 to_show.style.opacity = 1;
+                to_show.style.transition = "opacity 1s";
             });
-            /* Hide all elements that are referred by "data-hide-only" in the active substep */
-            document.querySelectorAll("." + sub_el.getAttribute("data-hide-only")).forEach(to_show => {
+            /* Hide all elements that are referred by "data-show-to" in the visible substeps */
+            document.querySelectorAll("." + sub_el.getAttribute("data-show-to")).forEach(to_show => {
                 to_show.style.opacity = 0;
                 to_show.style.transition = "opacity 1s";
             });
-            /* Show all elements that are referred by "data-show-only" in the active substep */
-            document.querySelectorAll("." + sub_el.getAttribute("data-add-only")).forEach(to_show => {
-                to_show.style.display = "";
-                setTimeout(() => {
-                    to_show.style.transition = "opacity 1s";
-                    to_show.style.opacity = 1;
-                }, 1);
+        });
+        /* Active the condition of the active substep */
+        event.target.querySelectorAll(".substep.substep-active").forEach(sub_el => {
+            /* Show all elements that are referred by "data-show-only" and "data-show-from" in the active substep */
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-show-only") + "," +
+                "." + sub_el.getAttribute("data-show-from")
+            ).forEach(to_show => {
+                to_show.style.opacity = 1;
+                to_show.style.transition = "opacity 1s";
             });
-            /* No display all elements that are referred by "data-none-only" in the active substep */
-            document.querySelectorAll("." + sub_el.getAttribute("data-remove-only")).forEach(to_show => {
+            /* Hide all elements that are referred by "data-hide-only" and "data-show-to" in the active substep */
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-hide-only") + "," +
+                "." + sub_el.getAttribute("data-show-to")
+            ).forEach(to_show => {
                 to_show.style.opacity = 0;
                 to_show.style.transition = "opacity 1s";
-                to_show.addEventListener("transitionend", () => {
-                    to_show.style.display = "none";
-                }, {
-                    once: true
-                });
             });
         });
     }
@@ -176,25 +156,16 @@
         slide_from = event.target;
         /* Effect to be set-up before entering in the step */
         event.detail.next.querySelectorAll(".substep").forEach(sub_el => {
-            /* Hide all elements are referred by "data-show-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-show-only")).forEach(to_show => {
+            /* Hide all elements are referred by "data-show-only" and "data-show-from" in all substeps */
+            document.querySelectorAll(
+                "." + sub_el.getAttribute("data-show-only") + "," +
+                "." + sub_el.getAttribute("data-show-from")
+            ).forEach(to_show => {
                 to_show.style.opacity = 0;
                 to_show.style.transition = "";
             });
             /* Show all elements are referred by "data-hide-only" in all substeps */
             document.querySelectorAll("." + sub_el.getAttribute("data-hide-only")).forEach(to_show => {
-                to_show.style.transition = "";
-                to_show.style.opacity = 1;
-            });
-            /* Remove all elements are referred by "data-add-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-add-only")).forEach(to_show => {
-                to_show.style.display = "none";
-                to_show.style.transition = "";
-                to_show.style.opacity = 0;
-            });
-            /* Add all elements are referred by "data-remove-only" in all substeps */
-            document.querySelectorAll("." + sub_el.getAttribute("data-remove-only")).forEach(to_show => {
-                to_show.style.display = "";
                 to_show.style.transition = "";
                 to_show.style.opacity = 1;
             });
